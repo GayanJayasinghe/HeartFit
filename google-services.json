@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "916138829343",
+    "project_id": "heart-fit-9a859",
+    "storage_bucket": "heart-fit-9a859.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916138829343:android:483695aff6cdcc7c24972a",
+        "android_client_info": {
+          "package_name": "com.polygonsclub.heartfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916138829343-1dr72vahi09sgfc97qajnjk94jmpgoeg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSvbyowAgOQsCWsHqaSGNPHxF9J1-zu4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916138829343-1dr72vahi09sgfc97qajnjk94jmpgoeg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1",
+
+  "plugins": {
+    "FirebaseAuthentication": {
+      "skipNativeAuth": false,
+      "providers": ["apple.com", "google.com"]
+    }
+  }
+
+}

@@ -1,0 +1,79 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="login"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card class="card">
+    <ion-card-content>
+      <ion-avatar class="logo">
+        <div>
+        <img src="assets/icon/heart-logo.png"/>
+      </div>
+      </ion-avatar>
+      <p style="text-align:center; font-weight: bold; font-size: large; margin-top: 5%;">Create Your Account</p>
+    </ion-card-content>
+  </ion-card>
+
+  <form [formGroup]="myForm">
+    <div class="div-content">
+    <ion-item class="cb">
+      <ion-input type="Text" placeholder="First Name:" [(ngModel)]="formData.firstname" name="inputUserName" formControlName="controlUserName"></ion-input>
+    </ion-item>
+      <ion-item *ngIf="!myForm.controls.controlUserName.valid && (submitAttempt)">
+        <p class="errorMsg">Please enter first name!</p>
+      </ion-item>
+    <br>
+    <ion-item class="cb">
+      <ion-input type="Email" placeholder="Email:" [(ngModel)]="formData.email" name="inputUserEmail" formControlName="controlUserEmail"></ion-input>
+    </ion-item>
+      <ion-item *ngIf="!myForm.controls.controlUserEmail.valid && (submitAttempt)">
+        <p class="errorMsg">Please enter a valid email!</p>
+      </ion-item>
+    <br>
+    <ion-item class="cb">
+      <ion-input type="Password" placeholder="Password" [(ngModel)]="formData.password" name="inputUserPassword" formControlName="controlUserPassword"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myForm.controls.controlUserPassword.errors?.required && (submitAttempt)">
+      <p class="errorMsg">Password is required!</p>
+    </ion-item>
+    <ion-item *ngIf="myForm.controls.controlUserPassword.errors?.pattern && (submitAttempt)">
+      <p class="errorMsg">Please enter valid Password!</p>
+    </ion-item>
+    <br>
+    <ion-item class="cb">
+      <ion-input type="Number" placeholder="Phone (e.g. 211234567)" [(ngModel)]="formData.phoneNumber" name="inputUserMobileNo" formControlName="controlUserMobileNo"></ion-input>
+    </ion-item>
+      <ion-item *ngIf="myForm.controls.controlUserMobileNo.errors?.required && (submitAttempt)">
+        <p class="errorMsg">Please enter mobile number!</p>
+      </ion-item>
+      <ion-item *ngIf="myForm.controls.controlUserMobileNo.errors?.pattern && (submitAttempt)">
+        <p class="errorMsg">Please enter 10 digit mobile number!</p>
+      </ion-item>
+    <br>
+    </div>
+
+    <ion-item>
+      <ion-checkbox [(ngModel)]="formData.understand" name="inputUserUnderstand" formControlName="controlUserUnderstand"></ion-checkbox>
+      <ion-label style="font-size: 60%;">I Understand That I Will Receive Text Messages From This App</ion-label>
+    </ion-item>
+    <ion-item *ngIf="myForm.controls.controlUserUnderstand.errors?.required && (submitAttempt)">
+      <p class="errorMsg">Please tick Understand!</p>
+    </ion-item>
+
+    <br>
+
+    <ion-item>
+      <ion-checkbox [(ngModel)]="formData.agree" name="inputUserAgree" formControlName="controlUserAgree"></ion-checkbox>
+      <ion-label style="font-size: 60%;"><u>I Agree To The Terms And Conditions</u></ion-label>
+    </ion-item>
+    <ion-item *ngIf="myForm.controls.controlUserAgree.errors?.required && (submitAttempt)">
+      <p class="errorMsg">Please agree to conditions!</p>
+    </ion-item>
+  </form>
+  <ion-button class="btn" size="full" fill="clear" (click)="register()">REGISTER</ion-button>
+
+</ion-content>

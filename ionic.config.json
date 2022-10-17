@@ -1,0 +1,7 @@
+{
+  "name": "HeartFitApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

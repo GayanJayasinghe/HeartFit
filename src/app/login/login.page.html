@@ -1,0 +1,47 @@
+<ion-content>
+
+  <ion-card class="card">
+    <ion-card-content>
+      <ion-avatar class="logo">
+        <div>
+        <img src="assets/icon/heart-logo.png"/>
+      </div>
+      </ion-avatar>
+      <p style="text-align:center; font-weight: bold; font-size: large; margin-top: 5%;">Heart Fit</p>
+      <p style="text-align:center; margin-top: 4%;">An exercise programme to improve heart fitness</p>
+    </ion-card-content>
+  </ion-card>
+
+  <form [formGroup]="myForm">
+    <div class="div-content">
+      <ion-item class="inputFields">
+        <ion-label><ion-icon name="person"></ion-icon></ion-label>
+        <ion-input type="email" placeholder="Email" [(ngModel)]="formData.username" name="inputUsername" formControlName="controlUsername"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!myForm.controls.controlUsername.valid && (submitAttempt)">
+        <p class="errorMsg">Please enter a valid email</p>
+      </ion-item>
+      <br>
+      <ion-item class="inputFields">
+        <ion-label><ion-icon name="lock-closed"></ion-icon></ion-label>
+        <ion-input type="Password" placeholder="Password" [(ngModel)]="formData.password" name="inputUserPassword" formControlName="controlUserPassword"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="myForm.controls.controlUserPassword.errors?.required && (submitAttempt)">
+        <p class="errorMsg">Password is required!</p>
+      </ion-item>
+      <ion-item *ngIf="myForm.controls.controlUserPassword.errors?.pattern && (submitAttempt)">
+        <p class="errorMsg">Please enter valid Password !</p>
+      </ion-item>
+    </div>
+  </form>
+  <p class="forgotpassword" color="dark" fill="clear" [routerLink]="['/reset-password']">Forgot password? <u>Click here</u></p>
+
+  <ion-button class="btn" size="full" fill="clear" (click)="submitLogin()">LOGIN</ion-button>
+
+  <div class="line1"></div>
+  <div style="display:inline-block;">Or</div>
+  <div class="line2"></div>
+
+  <p style="text-align: center; margin-top: 15%;">Don't have an account?</p>
+  <ion-button class="create-btn" size="full" fill="clear" (click)="presentAlert()">CREATE AN ACCOUNT</ion-button>
+</ion-content>

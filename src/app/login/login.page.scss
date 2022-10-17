@@ -1,0 +1,74 @@
+p{
+    color:#314887;
+}
+
+.div-content{
+    margin-top:70%;
+}
+
+.line1 {
+    width:40%;
+    height: 0;
+    border: 1px solid #314887;
+    margin: 3px;
+    display:inline-block;
+    margin-left: 6%;
+    margin-right: 1%;
+    margin-top: 10%;
+  }
+
+.line2{
+    width:40%;
+    height: 0;
+    border: 1px solid #314887;
+    margin: 3px;
+    display:inline-block;
+    margin-right: auto;
+    margin-left: 1%;
+    margin-top: 10%;
+}
+
+.inputFields {
+    border-radius: 10px;
+    --background: rgb(190, 190, 243);
+    background-color:transparent !important;
+    color: #2f4caa;
+    font-weight: bold;
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn{
+    background-color: #314887;
+    border-radius: 10px;
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+.forgotpassword{
+  width:90%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.create-btn{
+    background-color: #e9a86c;
+    border-radius: 10px;
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #314887;
+}
+
+.errorMsg{
+  color:red;
+  text-align: right;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+

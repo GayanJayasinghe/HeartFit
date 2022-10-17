@@ -1,0 +1,46 @@
+.div-content{
+  margin-top: 60%;
+}
+
+.inputTP{
+  border-radius: 10px;
+  --background: white;
+  background-color:transparent !important;
+  color: #2f4caa;
+  font-weight: bold;
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  --border-width: 1px;
+}
+
+.cb{
+  border-radius: 10px;
+  --background: #2f4caa;
+  color: white;
+  font-weight: bold;
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn{
+  background-color: #314887;
+  border-radius: 25px;
+  width:50%;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+.textArea{
+  --border-width: 1px;
+  width:90%;
+  margin-left:auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.question{
+  margin-left: 5%;
+}
