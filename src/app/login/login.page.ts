@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
         // eslint-disable-next-line max-len
         controlUsername:['', Validators.compose([Validators.maxLength(30), Validators.pattern(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/), Validators.required])],
         // eslint-disable-next-line max-len
-        controlUserPassword:['', Validators.compose([Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),Validators.required])]
+        controlUserPassword:['', Validators.compose([Validators.required])]
       }, {});
 
 
@@ -55,14 +55,16 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
-  async submitLogin(){
+  async submitLogin() {
     this.submitAttempt = true;
-
-    await this.userService.signInWithEmailAndPassword(this.formData.username, this.formData.password).then((user) => {
-      console.log('User ' + user.uid);
-    }).catch(e => {
-      console.log('ERROR ' + e.code);
-    });
+      if (this.myForm.invalid === false) {
+        await this.userService.signInWithEmailAndPassword(this.formData.username, this.formData.password).then((user) => {
+          this.router.navigate(['/welcome']);
+          console.log('User ' + user.uid);
+        }).catch(e => {
+          console.log('ERROR ' + e.code);
+      });
+    }
   }
   ngOnInit() {}
 }

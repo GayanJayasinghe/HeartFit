@@ -1,0 +1,28 @@
+
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="login"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card class="card">
+    <ion-card-content>
+      <ion-avatar class="logo">
+        <div>
+          <img src="assets/icon/heart-logo.png"/>
+        </div>
+      </ion-avatar>
+      <p style="text-align:center; font-weight: bold; font-size: large; margin-top: 5%;">Heart Health</p>
+    </ion-card-content>
+  </ion-card>
+  <Form style="margin-top: 50%">
+      <ion-card class="imgCard" *ngFor="let catagory of imagesList">
+        <img [src]='catagory.picUrl' style="height: 100px; width: 400px; padding-top: 2%; padding-right: 2%; padding-left: 2%"/>
+        <ion-card-content>
+          {{catagory.description}}
+        </ion-card-content>
+      </ion-card>
+  </Form>
+</ion-content>

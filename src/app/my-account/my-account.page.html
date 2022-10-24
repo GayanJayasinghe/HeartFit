@@ -17,35 +17,65 @@
       <p style="text-align:center; font-weight: bold; font-size: large; margin-top: 5%;">My Account</p>
     </ion-card-content>
   </ion-card>
+  <form [formGroup]="myForm">
+    <ion-card class="cardStyle">
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header" class="lbl">
+            <ion-label>Change Password</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-item class="inputTP">
+              <ion-input type="Password" placeholder="Password" name="inputUserPassword" [(ngModel)]="formData.password" formControlName="controlUserPassword"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myForm.controls.controlUserPassword.errors?.required && (submitAttempt)">
+              <p class="errorMsg">Password is required!</p>
+            </ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-card>
 
-  <ion-card style="margin-top: 45%; padding-top: 4%; padding-bottom: 4%">
-    <ion-item class="cb">
-      <ion-input type="Text" placeholder="Change Password" name="inputUserName"></ion-input>
-    </ion-item>
-  </ion-card>
+    <ion-card class="cardStyle2">
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header" class="lbl">
+            <ion-label>Change Phone Number</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-item class="inputTP">
+              <ion-input type="Text" placeholder="Phone Number" name="inputUserPhoneNumber" [(ngModel)]="formData.phoneNumber" formControlName="controlUserMobileNo"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myForm.controls.controlUserMobileNo.errors?.required && (submitAttempt)">
+              <p class="errorMsg">Please enter mobile number!</p>
+            </ion-item>
+            <ion-item *ngIf="myForm.controls.controlUserMobileNo.errors?.pattern && (submitAttempt)">
+              <p class="errorMsg">Please enter 10 digit mobile number!</p>
+            </ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-card>
 
-  <ion-card style="padding-top: 4%; padding-bottom: 4%">
-    <ion-item class="cb">
-      <ion-input type="Text" placeholder="Change Phone Number" name="inputUserPhoneNumber"></ion-input>
-    </ion-item>
-    <br>
-    <ion-item class="inputTP">
-      <ion-input type="tel" placeholder="Phone Number" name="inputUserPhoneNo" maxlength="10"></ion-input>
-    </ion-item>
-  </ion-card>
+    <ion-button class="btn" size="full" fill="clear" (click)="submitData()">SUBMIT</ion-button>
 
-  <ion-button class="btn" size="full" fill="clear">SUBMIT</ion-button>
-
-  <ion-card style="padding-top: 4%; padding-bottom: 4%">
-    <ion-item class="cb">
-      <ion-input type="Text" placeholder="Help" name="inputUserName"></ion-input>
-    </ion-item>
-    <p class="question">How can help?</p>
-
-    <ion-item class="textArea">
-      <ion-textarea></ion-textarea>
-    </ion-item>
-<br>
+      <ion-card class="cardStyle2">
+        <ion-accordion-group>
+          <ion-accordion value="first">
+            <ion-item slot="header" class="lbl">
+              <ion-label>Help</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+                <p class="question">How can help?</p>
+                <ion-item class="textArea">
+                  <ion-textarea></ion-textarea>
+                </ion-item>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-card>
+  <br>
+  </form>
     <ion-button class="btn" size="full" fill="clear">SUBMIT</ion-button>
-  </ion-card>
+
 </ion-content>

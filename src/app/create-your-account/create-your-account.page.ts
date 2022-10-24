@@ -3,6 +3,7 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {NavController} from '@ionic/angular';
 import {UserService} from '@app/api/user.service';
 import {LoadingController} from '@ionic/angular';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-your-account',
@@ -26,7 +27,8 @@ export class CreateYourAccountPage implements OnInit {
   constructor(public nav: NavController
             , public formBuilder: FormBuilder
             , public userService: UserService
-            , public loadingCtrl: LoadingController)
+            , public loadingCtrl: LoadingController
+            , public router: Router)
   {
     this.myForm = this.formBuilder.group({
       // eslint-disable-next-line max-len
@@ -55,20 +57,25 @@ export class CreateYourAccountPage implements OnInit {
   async register(){
     this.submitAttempt=true;
     // eslint-disable-next-line max-len
-    if(this.formData.firstname !== '' && this.formData.firstname !== undefined && this.formData.email !== '' && this.formData.email !== undefined &&
-      // eslint-disable-next-line max-len
-      this.formData.password !== '' && this.formData.password !== undefined && this.formData.phoneNumber !== '' && this.formData.phoneNumber !== undefined &&
-      this.formData.phoneNumber.toString().length === 9){
+    if(this.myForm.invalid === false){
       await this.userService.createUserWithEmailAndPassword(this.formData.email, this.formData.password).then((user) => {
         console.log('User ' + user.uid);
+        this.userService.initializeDatabase(user.uid);
+        this.userService.saveKeyValue('Name', this.formData.firstname);
+        this.userService.saveKeyValue('Email', this.formData.email);
+        this.userService.saveKeyValue('PhoneNumber', this.formData.phoneNumber);
+        this.userService.saveKeyValue('Understand', this.formData.understand);
+        this.userService.saveKeyValue('Agree', this.formData.agree);
+        this.userService.saveKeyValue('Test', {firstQ : 2, secondQ: 6});
+
         this.formData.firstname='';
         this.formData.email='';
         this.formData.password='';
         this.formData.phoneNumber='';
         this.formData.understand=false;
         this.formData.agree=false;
-
         this.submitAttempt=false;
+        this.router.navigate(['/welcome']);
       }).catch(e => {
         console.log('ERROR ' + e.code);
       }).finally(()=>{

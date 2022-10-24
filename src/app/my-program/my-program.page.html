@@ -2,7 +2,7 @@
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-back-button defaultHref="reset-password"></ion-back-button>
+        <ion-back-button defaultHref="welcome"></ion-back-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
@@ -27,7 +27,7 @@
         </td>
         <td>
           <ion-item>
-            <ion-select selected-text="Very Poor">
+            <ion-select value="veryPoor">
               <ion-select-option value="veryPoor">Very Poor</ion-select-option>
               <ion-select-option value="poor">Poor</ion-select-option>
               <ion-select-option value="normal">Normal</ion-select-option>
@@ -43,7 +43,7 @@
         </td>
         <td>
           <ion-item>
-            <ion-select selected-text="Very Poor">
+            <ion-select value="veryPoor">
               <ion-select-option value="veryPoor">Very Poor</ion-select-option>
               <ion-select-option value="poor">Poor</ion-select-option>
               <ion-select-option value="normal">Normal</ion-select-option>
@@ -59,7 +59,7 @@
         </td>
         <td>
           <ion-item>
-            <ion-select selected-text="Very Poor">
+            <ion-select value="veryPoor">
               <ion-select-option value="veryPoor">Very Poor</ion-select-option>
               <ion-select-option value="poor">Poor</ion-select-option>
               <ion-select-option value="normal">Normal</ion-select-option>
@@ -75,7 +75,7 @@
         </td>
         <td>
           <ion-item>
-            <ion-select selected-text="Very Poor">
+            <ion-select value="veryPoor">
               <ion-select-option value="veryPoor">Very Poor</ion-select-option>
               <ion-select-option value="poor">Poor</ion-select-option>
               <ion-select-option value="normal">Normal</ion-select-option>
@@ -91,7 +91,7 @@
         </td>
         <td>
           <ion-item>
-            <ion-select selected-text="Very Poor">
+            <ion-select value="veryPoor">
               <ion-select-option value="veryPoor">Very Poor</ion-select-option>
               <ion-select-option value="poor">Poor</ion-select-option>
               <ion-select-option value="normal">Normal</ion-select-option>
@@ -102,5 +102,5 @@
       </tr>
     </table>
   </ion-card>
-  <ion-button class="btn" size="full" fill="clear">SET UP PROGRAM</ion-button>
+  <ion-button class="btn" size="full" fill="clear" (click)="setupProgram()">SET UP PROGRAM</ion-button>
 </ion-content>

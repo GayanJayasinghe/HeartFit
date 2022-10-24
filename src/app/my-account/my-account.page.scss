@@ -2,13 +2,24 @@
   margin-top: 60%;
 }
 
+.cardStyle{
+  margin-top: 45%;
+  padding-top: 4%;
+  padding-bottom: 4%
+}
+
+.cardStyle2{
+  padding-top: 4%;
+  padding-bottom: 4%
+}
+
 .inputTP{
   border-radius: 10px;
   --background: white;
   background-color:transparent !important;
   color: #2f4caa;
   font-weight: bold;
-  width:90%;
+  //width:90%;
   margin-left: auto;
   margin-right: auto;
   --border-width: 1px;
@@ -43,4 +54,16 @@
 
 .question{
   margin-left: 5%;
+}
+
+.lbl{
+  --background: #2f4caa;
+  border-radius: 10px;
+  font-weight: bold;
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  --border-width: 1px;
+  color:white;
+  --color:transparent !important;
 }

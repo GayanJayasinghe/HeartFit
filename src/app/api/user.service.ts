@@ -2,15 +2,34 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable } from 'rxjs';
 import firebase from 'firebase/compat/app';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/compat/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  itemRef: AngularFireObject<any>;
+  item: Observable<any>;
   constructor(
-    public auth: AngularFireAuth
-  ) {}
+    public auth: AngularFireAuth,
+    public db: AngularFireDatabase
+  ) {
+  }
+  initializeDatabase(userId){
+    this.itemRef = this.db.object(userId);
+    this.item = this.itemRef.valueChanges();
+  }
+
+  public async save(fName: string, eMail: string, pHone: string, iUnder: boolean, iAgree: boolean){
+    await this.itemRef.set({ name: fName, email: eMail, phone: pHone, understand: iUnder, agree: iAgree });
+  }
+
+  public async saveKeyValue(keyName: string, valueName: any){
+    const objectToBeSaved = {};
+    objectToBeSaved[keyName] = valueName;
+    await this.itemRef.update(objectToBeSaved);
+  }
 
   public async createUserWithEmailAndPassword(userEmail, userPassword): Promise<firebase.User> {
     return new Promise((resolve, reject)=>{
@@ -24,6 +43,7 @@ export class UserService {
   public async signInWithEmailAndPassword(userEmail, userPassword): Promise<firebase.User> {
     return new Promise((resolve, reject)=>{
       this.auth.signInWithEmailAndPassword(userEmail,userPassword).then((result)=>{
+        console.log(JSON.stringify(result));
         resolve(result.user);
       }).catch(error=>{
         reject(error);

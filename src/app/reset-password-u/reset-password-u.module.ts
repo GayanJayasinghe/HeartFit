@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -9,12 +9,13 @@ import { ResetPasswordUPageRoutingModule } from './reset-password-u-routing.modu
 import { ResetPasswordUPage } from './reset-password-u.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ResetPasswordUPageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        ResetPasswordUPageRoutingModule,
+        ReactiveFormsModule
+    ],
   declarations: [ResetPasswordUPage]
 })
 export class ResetPasswordUPageModule {}
